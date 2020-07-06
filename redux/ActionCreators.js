@@ -157,3 +157,31 @@ export const addFavorite = (dishId) => ({
     type: ActionTypes.ADD_FAVORITE,
     payload: dishId
 });
+
+export const addComment = (comment) => ({
+    type: ActionTypes.ADD_COMMENT,
+    payload: comment
+});
+
+export const postComment = (dishId, rating, author, comment) => (dispatch) => {
+   
+    console.log(rating);
+    console.log(author);
+    console.log(comment);
+
+    const newComment = {
+        author: author,
+        comment: comment,
+        dishId: dishId,
+        rating: rating,
+    };
+    newComment.date = new Date().toISOString();
+
+    console.log(newComment.date);
+
+    
+
+    setTimeout(() => {
+        dispatch(addComment(newComment));
+    }, 1000); // Simulating an async server call
+};
