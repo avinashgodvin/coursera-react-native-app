@@ -185,3 +185,8 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
         dispatch(addComment(newComment));
     }, 1000); // Simulating an async server call
 };
+
+export const deleteFavorite = (dishId) => ({
+    type: ActionTypes.DELETE_FAVORITE,
+    payload: dishId
+});
